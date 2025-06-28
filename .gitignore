@@ -1,0 +1,17 @@
+# Bytecode cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE folders
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Database (optional)
+*.db

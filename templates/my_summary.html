@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Summary</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+      <div class="card-header bg-danger text-white text-center">
+        <h4>📊 Your Purchase Summary</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-group mb-4">
+          <li class="list-group-item bg-secondary text-light"><strong>Name:</strong> {{ summary.Name }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Mobile:</strong> {{ summary.Mobile }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Total Amount:</strong> ₹{{ summary.Total_Amount }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Purchase Count:</strong> {{ summary.Purchase_Count }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Average Purchase:</strong> ₹{{ summary.Avg_Purchase }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Preferred Category:</strong> {{ summary.Preferred_Category }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>First Purchase:</strong> {{ summary.First_Purchase }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Last Purchase:</strong> {{ summary.Last_Purchase }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Recency (days):</strong> {{ summary.Recency }}</li>
+          <li class="list-group-item bg-secondary text-light"><strong>Customer Type:</strong> {{ summary.Customer_Type }}</li>
+        </ul>
+        <a href="/home" class="btn btn-secondary d-block">🔙 Back</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

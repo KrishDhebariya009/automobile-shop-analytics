@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .dashboard-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #b82845;
+        }
+        h2 {
+            color: #ff4d4d;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        ul.nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        ul.nav-links li {
+            margin-bottom: 15px;
+        }
+        ul.nav-links a {
+            display: block;
+            padding: 12px 18px;
+            background-color: #292929;
+            color: #ffffff;
+            text-decoration: none;
+            border-left: 6px solid #ff0033;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        ul.nav-links a:hover {
+            background-color: #3a3a3a;
+            border-left-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h2>👋 Welcome, {{ name }}</h2>
+
+    <ul class="nav-links">
+        {% if session.get('role') != 'owner' %}
+            <li><a href="/add">➕ Add Purchase</a></li>
+            <li><a href="/history">📋 View History</a></li>
+            <li><a href="/my_summary">📋 My Summary</a></li>
+            <li><a href="/customer_charts">📉 View Purchase Charts</a></li>
+        {% endif %}
+
+        {% if session.get('role') == 'owner' %}
+            <li><a href="/all_purchases">📁 All Purchases (Filter)</a></li>
+            <li><a href="/rfm">📊 RFM Analysis</a></li>
+            <li><a href="/leaderboard">🏆 Customer Leaderboard</a></li>
+            <li><a href="/download_customer_report">📥 Download Customer Report (CSV)</a></li>
+        {% endif %}
+
+        <li><a href="/logout">🚪 Logout</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

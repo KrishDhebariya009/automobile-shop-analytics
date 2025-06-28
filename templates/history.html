@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purchase History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-danger text-white text-center">
+        <h4>📋 Your Purchase History</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="row g-3 mb-4">
+          <div class="col-md-4">
+            <select name="category" class="form-select bg-secondary text-light">
+              <option value="All">All Categories</option>
+              <option value="Oil">Oil</option>
+              <option value="Parts">Parts</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input type="date" name="start_date" class="form-control bg-secondary text-light">
+          </div>
+          <div class="col-md-3">
+            <input type="date" name="end_date" class="form-control bg-secondary text-light">
+          </div>
+          <div class="col-md-2 d-grid">
+            <button class="btn btn-primary">🔍 Filter</button>
+          </div>
+        </form>
+        <div class="table-responsive mb-3">
+          <table class="table table-dark table-striped">
+            <thead><tr><th>Bill No</th><th>Amount</th><th>Category</th><th>Vehicle</th><th>Payment</th><th>Date</th></tr></thead>
+            <tbody>
+              {% for row in purchases %}
+              <tr>
+                <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td><td>{{ row[4] }}</td><td>{{ row[5] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <form action="/download_history_csv" method="post" class="mb-3 d-grid">
+          <button class="btn btn-danger">⬇️ Download My Purchase History</button>
+        </form>
+        <a href="/home" class="btn btn-secondary">🔙 Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
